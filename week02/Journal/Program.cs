@@ -1,10 +1,12 @@
 using System;
-/*Added attrubite of*/
+/*For the Extra program I added passwords into it.
+Added two attributes in Journal class: _owner and _password
+This was used to make a basic password system for when they save and load a journal.*/
 class Program
 {
     static void Main(string[] args)
     {
-        
+
         PromptGenerator todaysPrompt = new PromptGenerator();
 
         todaysPrompt._prompts.Add("What did you like eating most today?");

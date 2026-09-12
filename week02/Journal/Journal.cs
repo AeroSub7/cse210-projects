@@ -6,6 +6,7 @@ public class Journal
 {
     public List<Entry> _entries = new List<Entry>();
     public string _owner;
+    public string _password;
 
     public void AddEntry(Entry newEntry)
     {
@@ -33,6 +34,8 @@ public class Journal
             Console.Write("Journal's _Owner: ");
             _owner = Console.ReadLine();
         }
+        Console.Write("Make a Password: ");
+        _password = Console.ReadLine();
         File.Delete(file);
 
         using (StreamWriter outputFile = new StreamWriter(file))
@@ -44,6 +47,7 @@ public class Journal
                 outputFile.WriteLine(entry._entryText);
             }
             outputFile.WriteLine(_owner);
+            outputFile.WriteLine(_password);
         }
 
     }
@@ -52,7 +56,7 @@ public class Journal
     {
         _entries.Clear();
         string[] lines = System.IO.File.ReadAllLines(file);
-        for (int i = 0; i < (lines.Length - 1); i++)
+        for (int i = 0; i < (lines.Length - 2); i++)
         {
             if ((i % 3) == 0)
             {
@@ -69,7 +73,17 @@ public class Journal
                 _entries[(i / 3)]._entryText = lines[i];
             }
         }
-        _owner = lines[lines.Length - 1];
+        _owner = lines[lines.Length - 2];
+        _password = lines[lines.Length - 1];
+        Console.Write("Password: ");
+        string input = Console.ReadLine();
+        if (input != _password)
+        {
+            _entries.Clear();
+            _owner = "";
+            _password = "";
+            Console.WriteLine("That is not the Password. Please load another file.");
+        }
     }
 
 }

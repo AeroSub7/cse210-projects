@@ -34,8 +34,11 @@ public class Journal
             Console.Write("Journal's _Owner: ");
             _owner = Console.ReadLine();
         }
-        Console.Write("Make a Password: ");
-        _password = Console.ReadLine();
+        if (string.IsNullOrEmpty(_password))
+        {
+            Console.Write("Make a Password: ");
+            _password = Console.ReadLine();
+        }
         File.Delete(file);
 
         using (StreamWriter outputFile = new StreamWriter(file))

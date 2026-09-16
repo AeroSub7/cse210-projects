@@ -7,15 +7,16 @@ public class Word
 
     public Word(string text)
     {
-        
+        _text = text;
+        _isHidden = false;
     }
     public void Hide()
     {
-        
+        _isHidden = true;
     }
     public void Show()
     {
-        
+        _isHidden = false;
     }
     public bool IsHidden()
     {
@@ -23,6 +24,19 @@ public class Word
     }
     public string GetDisplayText()
     {
-        return _text;
+        if (!_isHidden)
+        {
+            return _text;
+        }
+        else
+        {
+            char[] letters = _text.ToCharArray();
+            for (int i = 0; i < _text.Length; i++)
+            {
+                letters[i] = '_';
+            }
+            string hiddenText = new string(letters);
+            return hiddenText;
+        }
     }
 }

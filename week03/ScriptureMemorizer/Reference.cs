@@ -2,10 +2,12 @@ using System;
 
 public class Reference
 {
+    //Variables
     private string _book;
     private int _chapter;
     private int _verse;
     private int _endVerse;
+    //Constructors
     public Reference(string book, int chapter, int verse)
     {
         _book = book;
@@ -20,6 +22,7 @@ public class Reference
         _verse = startVerse;
         _endVerse = endVerse;
     }
+    //Methods
     public string GetDisplayText()
     {
         if (_endVerse == 0)

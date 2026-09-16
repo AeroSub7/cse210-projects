@@ -2,14 +2,16 @@ using System;
 
 public class Word
 {
+    //Variables
     private string _text;
     private bool _isHidden;
-
+    //Constructors
     public Word(string text)
     {
         _text = text;
         _isHidden = false;
     }
+    //Methods
     public void Hide()
     {
         _isHidden = true;
@@ -30,13 +32,17 @@ public class Word
         }
         else
         {
-            char[] letters = _text.ToCharArray();
-            for (int i = 0; i < _text.Length; i++)
-            {
-                letters[i] = '_';
-            }
-            string hiddenText = new string(letters);
-            return hiddenText;
+            return Concealer();
         }
+    }
+    private string Concealer()
+    {
+        char[] letters = _text.ToCharArray();
+        for (int i = 0; i < _text.Length; i++)
+        {
+            letters[i] = '_';
+        }
+        string hiddenText = new string(letters);
+        return hiddenText;
     }
 }

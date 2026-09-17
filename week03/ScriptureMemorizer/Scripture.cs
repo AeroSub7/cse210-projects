@@ -16,6 +16,17 @@ public class Scripture
             _words.Add(word);
         }
     }
+    public Scripture()
+    {
+        _reference = new Reference("1 Corinthians", 15, 22);
+        string scripture = "For as in Adam all die, even so in Christ shall all be made alive.";
+        string[] parts = scripture.Split(' ');
+        foreach (string part in parts)
+        {
+            Word word = new Word(part);
+            _words.Add(word);
+        }
+    }
     //Methods
     public void HideRandomWords(int numberToHide)
     {
@@ -62,7 +73,14 @@ public class Scripture
     }
     public int GetHideNumber()
     {
-        return _words.Count / 7;
+        if (_words.Count > 7)
+        {
+            return _words.Count / 7;
+        }
+        else
+        {
+            return 1;
+        }
     }
     private int NotHidden()
     {

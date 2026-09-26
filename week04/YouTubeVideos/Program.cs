@@ -17,6 +17,7 @@ class Program
         first.AddComment(c);
         Comment d = new Comment("Solaar_2100", "u dont know how much I appreciate this zac efron");
         first.AddComment(d);
+        videos.Add(first);
 
         Comment f = new Comment("TerriblyTrouble", "I'm glad I'm not the only one that took a long time to tie their shoes");
         second.AddComment(f);
@@ -26,6 +27,7 @@ class Program
         second.AddComment(h);
         Comment j = new Comment("Geometry_dude14", "I feel ashamed I had to search this up");
         second.AddComment(j);
+        videos.Add(second);
 
         Comment k = new Comment("Kevvy_Carabrenno", "You really should include the auto-lock, just wrap the loop at 0:36 (backwards, to YOUR right) around the rope coming from the tree which you have draped in front of the loop.");
         third.AddComment(k);
@@ -33,6 +35,7 @@ class Program
         third.AddComment(l);
         Comment q = new Comment("kadmow", "(autolock - so called also removes most of the mechanical advantage.. - the simple 'sheepshank truckies / waggoners hitch is easily cascaded if the first is tied high enough giving a 4:1 theoretical advantage in 2 stages - and it is easily released after being tight for any length of time.)");
         third.AddComment(q);
+        videos.Add(third);
 
         Comment w = new Comment("WisdomInChristFoundation", "Covenants with authority distinguish us.");
         fourth.AddComment(w);
@@ -42,7 +45,13 @@ class Program
         fourth.AddComment(r);
         Comment t = new Comment("brotherofchrist7", "Help me get to the temple lord");
         fourth.AddComment(t);
+        videos.Add(fourth);
 
-        
+        foreach (Video video in videos)
+        {
+            video.Display();
+        }
+
+
     }
 }

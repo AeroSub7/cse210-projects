@@ -13,6 +13,7 @@ public class Activity
 
     public void DisplayStaringMessage()
     {
+        Console.Clear();
         Console.WriteLine($"Welcome to the {_name}.\n\n{_description}\n");
         Console.Write("How long, in seconds would you like for your session? ");
         do
@@ -27,6 +28,7 @@ public class Activity
                 Console.Write("We recommend that a session is not longer then 5 minutes (300 seconds) long. How long, in seconds would you like for your session? ");
             }
         } while (_duration > 300 || _duration < 16);
+        Console.Clear();
         Console.WriteLine("Get ready...");
         ShowSpinner(4);
     }
@@ -69,5 +71,10 @@ public class Activity
     public int GetDuration()
     {
         return _duration;
+    }
+
+    public void SetDuration(int duration)
+    {
+        _duration = duration;
     }
 }

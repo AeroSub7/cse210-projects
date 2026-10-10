@@ -1,2 +1,2 @@
-0
+0^goals.txt
 SimpleGoal^fun^Too much fun^222^False

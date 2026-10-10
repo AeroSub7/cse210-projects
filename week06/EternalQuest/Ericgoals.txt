@@ -1,4 +1,4 @@
-1150
+1200^Ericgoals.txt
 SimpleGoal^Project^For programing class^1000^True
-EternalGoal^Tithing^Pay Tithing each paycheck.^50^1
+EternalGoal^Tithing^Pay Tithing each paycheck.^50^2
 ChecklistGoal^Programing Hw^Finish all the assiments for CSE210 for week 6 and 7^100^1^5^1200

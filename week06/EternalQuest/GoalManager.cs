@@ -7,12 +7,14 @@ public class GoalManager
     private List<Goal> _goals;
     private int _score;
     private string _player;
+    private string _saveFile;
 
     public GoalManager(string name)
     {
         _score = 0;
         _goals = new List<Goal>();
         _player = name;
+        _saveFile = "";
     }
 
     public void Start()
@@ -109,17 +111,41 @@ public class GoalManager
     }
     public void SaveGoals()
     {
+        if (_saveFile != "")
+        {
+            MenuDisplay("Save options are", ["Save", "Save As", "Main Menu"], "Your choice");
+            string userResponse = Console.ReadLine();
+            if (userResponse == "1")
+            {
+                File.Delete(_saveFile);
+                using (StreamWriter outputFile = new StreamWriter(_saveFile))
+                {
+                    outputFile.WriteLine($"{_score}^{_saveFile}");
+                    foreach (Goal goal in _goals)
+                    {
+                        outputFile.WriteLine($"{goal.SaveGoal()}");
+                    }
+                }
+                return;
+            }
+            else if (userResponse == "3")
+            {
+                return;
+            }
+        }
+
         Console.Write("What is the filename for the goal file? ");
         string fileName = Console.ReadLine();
         File.Delete(fileName);
         using (StreamWriter outputFile = new StreamWriter(fileName))
         {
-            outputFile.WriteLine($"{_score}");
+            outputFile.WriteLine($"{_score}^{fileName}");
             foreach (Goal goal in _goals)
             {
                 outputFile.WriteLine($"{goal.SaveGoal()}");
             }
         }
+
     }
     public void LoadGoals()
     {
@@ -137,7 +163,9 @@ public class GoalManager
         {
             _goals.Clear();
             string[] lines = File.ReadAllLines(savedFiles[fileChoice - 1]);
-            _score = int.Parse(lines[0]);
+            string[] firstLine = lines[0].Split("^");
+            _score = int.Parse(firstLine[0]);
+            _saveFile = firstLine[1];
             foreach (string line in lines[1..lines.Length])
             {
                 string[] parts = line.Split("^");

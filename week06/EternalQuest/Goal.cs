@@ -24,8 +24,6 @@ public abstract class Goal
             return $"[X] {_shortName} ({_description})";
         }
         return $"[ ] {_shortName} ({_description})";
-
-
     }
     public virtual int GetPoints()
     {

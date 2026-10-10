@@ -47,7 +47,6 @@ public class ChecklistGoal : Goal
             return $"[X] {GetShortName()} ({GetDescription()}) -- Currently completed: {_amountCompleted}/{_target}";
         }
         return $"[ ] {GetShortName()} ({GetDescription()}) -- Currently completed: {_amountCompleted}/{_target}";
-        
     }
     public int GetAmountCompleted()
     {

@@ -1,0 +1,4 @@
+1150
+SimpleGoal^Project^For programing class^1000^True
+EternalGoal^Tithing^Pay Tithing each paycheck.^50^1
+ChecklistGoal^Programing Hw^Finish all the assiments for CSE210 for week 6 and 7^100^1^5^1200
